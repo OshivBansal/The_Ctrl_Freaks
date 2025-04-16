@@ -2,15 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  margin: 0;
+  padding: 0;
+}
 body {
   margin: 0;
   font-family: 'Open Sans', sans-serif; /* Consistent font family for body text */
   -webkit-font-smoothing: antialiased; /* For better font rendering on macOS */
   -moz-osx-font-smoothing: grayscale; /* For better font rendering on Firefox */
-  background-image: url('./bg.png');
-  background-size: 200% 180%;
-  background-repeat: no-repeat; /* Prevent background image from repeating */
-  animation: gradientTransform 3s linear infinite; /* Shortened animation properties */
+  
 }
 
 @keyframes gradientTransform {
@@ -32,9 +33,8 @@ code {
 
 /* Optional: Adding some global utility classes to enhance styling */
 .container {
-  max-width: 1200px;
+  max-width: 2000px;
   margin: 0 auto;
-  padding: 0 1rem; /* Responsive padding */
 }
 
 .text-center {

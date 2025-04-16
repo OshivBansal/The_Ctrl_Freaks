@@ -1,27 +1,31 @@
 import { Link } from "react-router-dom";
-import { GetIpfsUrlFromPinata } from "../utils";
 
-function NFTTile({ data }) {
-    const { tokenId, image, name, description } = data;
-    const newTo = `/nftPage/${tokenId}`;
-    const IPFSUrl = GetIpfsUrlFromPinata(image);
-
+export default function NFTTile({ data }) {
     return (
-        <Link to={newTo}>
-            <div className="border-2 border-gray-700 ml-12 mt-5 mb-12 flex flex-col items-center rounded-lg w-48 md:w-72 shadow-lg transition-transform transform hover:scale-105">
-                <img 
-                    src={IPFSUrl} 
-                    alt={name} 
-                    className="w-full h-60 md:h-72 rounded-t-lg object-cover"
-                    crossOrigin="anonymous" 
-                />
-                <div className="text-white w-full p-4 bg-gradient-to-t from-gray-800 to-transparent rounded-b-lg">
-                    <strong className="text-xl">{name}</strong>
-                    <p className="text-sm mt-2">{description}</p>
-                </div>
-            </div>
-        </Link>
+        <div className="bg-gray-800 rounded-lg shadow-lg p-4 w-64 flex flex-col items-center text-white border border-gray-700">
+            <img
+                src={data.image}
+                alt={data.name || "NFT"}
+                className="w-full h-48 object-cover rounded-md mb-4"
+            />
+            <h3 className="text-lg font-bold mb-2">{data.name || "Unnamed NFT"}</h3>
+            <p className="text-gray-300 mb-4">
+                <span className="font-semibold">Price:</span>{" "}
+                {data.price ? `${data.price} ETH` : "Not listed"}
+            </p>
+            <Link
+                to={`/nftpage/${data.tokenId}`}
+                state={{
+                    image: data.image,
+                    price: data.price,
+                    tokenId: data.tokenId,
+                    name: data.name,
+                    description: data.description
+                }}
+                className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition duration-200"
+            >
+                View Details
+            </Link>
+        </div>
     );
 }
-
-export default NFTTile;
