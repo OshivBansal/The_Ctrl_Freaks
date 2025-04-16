@@ -84,7 +84,7 @@ function Navbar() {
         <div className="flex items-center space-x-3">
           <Link to="/" className="flex items-center space-x-2">
             <img src={fullLogo} alt="Logo" className="w-10 h-10" />
-            <span className="text-2xl font-bold">NFT Marketplace</span>
+            <span className="text-2xl font-bold">MetaMarket</span>
           </Link>
         </div>
 
