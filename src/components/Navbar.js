@@ -1,4 +1,4 @@
-import fullLogo from '../full_logo.png';
+import fullLogo from '../metamarket.jpeg';
 import { Link, useLocation } from 'react-router-dom';
 import { useEffect, useState, useCallback } from 'react';
 
